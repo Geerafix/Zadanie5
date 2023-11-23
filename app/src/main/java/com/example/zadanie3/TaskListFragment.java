@@ -151,27 +151,13 @@ public class TaskListFragment extends Fragment {
                 nameTextView.setText(task.getName());
             }
 
-            doneTask();
+            done.setChecked(task.isDone());
+            if(task.isDone()) nameTextView.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
 
             if (task.getCategory().equals(Category.HOME)) {
                 icon.setImageResource(R.drawable.ic_house);
             } else {
                 icon.setImageResource(R.drawable.ic_study);
-            }
-
-            done.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                task.setDone(isChecked);
-                doneTask();
-            });
-        }
-
-        private void doneTask() {
-            if (task.isDone()) {
-                nameTextView.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-                dateTextView.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-            } else {
-                nameTextView.setPaintFlags(nameTextView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
-                dateTextView.setPaintFlags(dateTextView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
             }
         }
 
@@ -184,6 +170,10 @@ public class TaskListFragment extends Fragment {
 
         public CheckBox getCheckBox() {
             return done;
+        }
+
+        public TextView getNameTextView() {
+            return nameTextView;
         }
     }
 
@@ -205,9 +195,15 @@ public class TaskListFragment extends Fragment {
         public void onBindViewHolder(@NonNull TaskHolder holder, int position) {
             CheckBox checkBox = holder.getCheckBox();
             Task task = tasks.get(position);
+            TextView nameTextView = holder.getNameTextView();
             checkBox.setChecked(tasks.get(position).isDone());
             checkBox.setOnCheckedChangeListener((buttonView, isChecked) ->
-                    tasks.get(holder.getBindingAdapterPosition()).setDone(isChecked));
+                {
+                    tasks.get(holder.getBindingAdapterPosition()).setDone(isChecked);
+                    if(isChecked) nameTextView.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+                    else nameTextView.setPaintFlags(nameTextView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+                });
+
             holder.bind(task);
         }
 
