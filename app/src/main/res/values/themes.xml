@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Zadanie3" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Zadanie3" parent="Base.Theme.Zadanie3" />
+
+    <style name="TextFieldsStyle">
+        <item name="android:background">@color/lightblue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/text_field_size</item>
+        <item name="android:padding">@dimen/task_item_padding</item>
+    </style>
+    <style name="InfoStyle">
+        <item name="android:background">@color/lightgreen</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>

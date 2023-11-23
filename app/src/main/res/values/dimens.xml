@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="task_item_height">30dp</dimen>
+    <dimen name="text_field_size">5pt</dimen>
+    <dimen name="fragment_frame_margin">10dp</dimen>
+    <dimen name="task_item_padding">7dp</dimen>
+</resources>
