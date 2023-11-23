@@ -4,7 +4,7 @@
     <string name="details_label">Details</string>
     <string name="done_label">Done</string>
     <string name="task_add_new">New task</string>
-    <string name="show_subtitle">Shos subtitle</string>
+    <string name="show_subtitle">Show subtitle</string>
     <string name="hide_subtitle">Hide subtitle</string>
     <string name="subtitle_format">%1$d tasks</string>
     <string name="category">Category</string>
