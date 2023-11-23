@@ -36,9 +36,6 @@ public class TaskListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_task_list, container, false);
         recyclerView = view.findViewById(R.id.task_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        setHasOptionsMenu(true);
-
         return view;
     }
 
@@ -120,6 +117,12 @@ public class TaskListFragment extends Fragment {
         }
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
         appCompatActivity.getSupportActionBar().setSubtitle(subtitle);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(KEY_SUBTITLE_VISIBLE, subtitleVisible);
     }
 
     private class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
